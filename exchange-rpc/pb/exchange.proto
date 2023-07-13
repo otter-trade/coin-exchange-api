@@ -1,0 +1,222 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package pb;
+option go_package = "./pb";
+
+//--------------------------------管理员--------------------------------
+message Admin {
+  int64 id = 1; //id
+  int64 roleId = 2; //角色组
+  string account = 3; //用户名
+  string nickname = 4; //昵称
+  string mobile = 5; //手机号
+  string password = 6; //密码
+  string salt = 7; //密码盐
+  string avatar = 8; //头像
+  string email = 9; //邮箱
+  int64 loginFail = 10; //登录失败次数
+  int64 loginTime = 11; //登录时间
+  string loginIp = 12; //登录 ip
+  string status = 13; //状态
+  int64 createTime = 14; //创建时间
+  int64 updateTime = 15; //更新时间
+}
+
+message AdminAddReq {
+  int64 roleId = 1; //角色组
+  string account = 2; //用户名
+  string nickname = 3; //昵称
+  string mobile = 4; //手机号
+  string password = 5; //密码
+  string secret = 6; //秘钥
+  string salt = 7; //密码盐
+  string avatar = 8; //头像
+  string email = 9; //邮箱
+  int64 loginFail = 10; //登录失败次数
+  int64 loginTime = 11; //登录时间
+  string loginIp = 12; //登录 ip
+  string status = 13; //状态
+  int64 createTime = 14; //创建时间
+  int64 updateTime = 15; //更新时间
+}
+
+message AdminAddResp {
+}
+
+message AdminUpdateReq {
+  int64 id = 1; //id
+  int64 roleId = 2; //角色组
+  string account = 3; //用户名
+  string nickname = 4; //昵称
+  string mobile = 5; //手机号
+  string password = 6; //密码
+  string secret = 7; //秘钥
+  string salt = 8; //密码盐
+  string avatar = 9; //头像
+  string email = 10; //邮箱
+  int64 loginFail = 11; //登录失败次数
+  int64 loginTime = 12; //登录时间
+  string loginIp = 13; //登录 ip
+  string status = 14; //状态
+  int64 createTime = 15; //创建时间
+  int64 updateTime = 16; //更新时间
+}
+
+message AdminUpdateResp {
+}
+
+message AdminDeleteReq {
+  int64 id = 1; //id
+}
+
+message AdminDeleteResp {
+}
+
+message AdminDetailsReq {
+  int64 id = 1; //id
+  string account = 2; //用户名
+}
+
+message AdminDetailsResp {
+  int64 id = 1; //id
+  int64 roleId = 2; //角色组
+  string account = 3; //用户名
+  string nickname = 4; //昵称
+  string mobile = 5; //手机号
+  string password = 6; //密码
+  string secret = 7; //秘钥
+  string salt = 8; //密码盐
+  string avatar = 9; //头像
+  string email = 10; //邮箱
+  int64 loginFail = 11; //登录失败次数
+  int64 loginTime = 12; //登录时间
+  string loginIp = 13; //登录 ip
+  string status = 14; //状态
+  int64 createTime = 15; //创建时间
+  int64 updateTime = 16; //更新时间
+}
+
+message AdminSearchReq {
+  int64 pageNo = 1; //pageNo
+  int64 pageSize = 2; //pageSize
+  string orderField = 3; //排序字段
+  string orderParam = 4; //排序方法
+  int64 startTime = 5; //开始时间
+  int64 endTime = 6; //结束时间
+}
+
+message AdminSearchResp {
+  int64 total = 1; //总条数
+  repeated Admin list = 2; //admin
+}
+
+//--------------------------------菜单权限--------------------------------
+message Access {
+  int64 id = 1; //id
+  int64 parentId = 2; //上级ID
+  string name = 3; //权限标识
+  string title = 4; //菜单名称
+  string type = 5; //类型
+  string icon = 6; //图标
+  string params = 7; //参数
+  int64 weigh = 8; //权重
+  string status = 9; //状态
+}
+
+message AccessAddReq {
+  int64 parentId = 1; //上级ID
+  string name = 2; //权限标识
+  string title = 3; //菜单名称
+  string type = 4; //类型
+  string icon = 5; //图标
+  string params = 6; //参数
+  int64 weigh = 7; //权重
+  string status = 8; //状态
+}
+
+message AccessAddResp {
+}
+
+message AccessUpdateReq {
+  int64 id = 1; //id
+  int64 parentId = 2; //上级ID
+  string name = 3; //权限标识
+  string title = 4; //菜单名称
+  string type = 5; //类型
+  string icon = 6; //图标
+  string params = 7; //参数
+  int64 weigh = 8; //权重
+  string status = 9; //状态
+}
+
+message AccessUpdateResp {
+}
+
+message AccessDeleteReq {
+  int64 id = 1; //id
+}
+
+message AccessDeleteResp {
+}
+
+message AccessDetailsReq {
+  int64 id = 1; //id
+}
+
+message AccessDetailsResp {
+  int64 id = 1; //id
+  int64 parentId = 2; //上级ID
+  string name = 3; //权限标识
+  string title = 4; //菜单名称
+  string type = 5; //类型
+  string icon = 6; //图标
+  string params = 7; //参数
+  int64 weigh = 8; //权重
+  string status = 9; //状态
+}
+
+message AccessSearchReq {
+  int64 pageNo = 1; //pageNo
+  int64 pageSize = 2; //pageSize
+  string orderField = 3; //排序字段
+  string orderParam = 4; //排序方法
+  int64 startTime = 5; //开始时间
+  int64 endTime = 6; //结束时间
+}
+
+message AccessSearchResp {
+  int64 total = 1; //总条数
+  repeated Access list = 2; //acces
+}
+
+message AccessListReq {
+  int64 pageNo = 1; //pageNo
+  int64 pageSize = 2; //pageSize
+  string orderField = 3; //排序字段
+  string orderParam = 4; //排序方法
+  int64 startTime = 5; //开始时间
+  int64 endTime = 6; //结束时间
+  string type = 7; //类型
+  string status = 8; //状态
+  repeated string Rules = 9; //权限
+}
+message AccessListResp{
+  repeated Access list = 2; //acces
+}
+
+service Exchange {
+  //-----------------------管理员-----------------------
+  /** 添加管理员 **/
+  rpc AdminAdd(AdminAddReq) returns (AdminAddResp);
+  /** 更新管理员 **/
+  rpc AdminUpdate(AdminUpdateReq) returns (AdminUpdateResp);
+  /** 删除管理员 **/
+  rpc AdminDelete(AdminDeleteReq) returns (AdminDeleteResp);
+  /** 获取管理员 **/
+  rpc AdminDetails(AdminDetailsReq) returns (AdminDetailsResp);
+  /** 管理员列表 **/
+  rpc AdminSearch(AdminSearchReq) returns (AdminSearchResp);
+
+}

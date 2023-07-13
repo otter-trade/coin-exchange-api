@@ -1,0 +1,121 @@
+type (
+    AdminCommonResp {
+    }
+
+    Admin {
+        id int64 `json:"id"`                  //id
+        roleId int64 `json:"role_id"`         //角色组
+        account string `json:"account"`       //用户名
+        nickname string `json:"nickname"`     //昵称
+        mobile string `json:"mobile"`         //手机号
+        password string `json:"password"`     //密码
+        salt string `json:"salt"`             //密码盐
+        avatar string `json:"avatar"`         //头像
+        email string `json:"email"`           //邮箱
+        loginFail int64 `json:"login_fail"`   //登录失败次数
+        loginTime int64 `json:"login_time"`   //登录时间
+        loginIp string `json:"login_ip"`      //登录 ip
+        status string `json:"status"`         //状态
+        StatusText string `json:"status_text"`//状态描述
+        createTime int64 `json:"create_time"` //创建时间
+        updateTime int64 `json:"update_time"` //更新时间
+    }
+
+    AdminSearchReq {
+        page int64 `json:"page,optional"`                                       //第几页
+        pageSize int64 `json:"page_size,optional"`                              //每页多少条
+        orderField string `json:"order_field,optional"`                         //排序字段
+        orderParam string `json:"order_param,optional"`                         //排序方法
+        startTime int64 `json:"start_time,optional"`                            //开始时间
+        endTime int64 `json:"end_time,optional"`                                //结束时间
+    }
+
+    AdminSearchResp {
+        Total int64 `json:"total"`    // 总数
+        List []*Admin `json:"list"`   // 数据
+    }
+
+    AdminUpdateReq {
+        id int64 `json:"id"`                  //id
+        roleId int64 `json:"role_id"`         //角色组
+        account string `json:"account"`       //用户名
+        nickname string `json:"nickname"`     //昵称
+        mobile string `json:"mobile"`         //手机号
+        password string `json:"password"`     //密码
+        avatar string `json:"avatar"`         //头像
+        email string `json:"email"`           //邮箱
+        loginFail int64 `json:"login_fail"`   //登录失败次数
+        loginTime int64 `json:"login_time"`   //登录时间
+        loginIp string `json:"login_ip"`      //登录 ip
+        status string `json:"status"`         //状态
+    }
+
+    AdminDeleteReq {
+        id int64 `json:"id" validate:"required"`  //id
+    }
+
+    AdminAddReq {
+        roleId int64 `json:"role_id"`                  //角色组
+        account string `json:"account"`                //用户名
+        nickname string `json:"nickname"`              //昵称
+        mobile string `json:"mobile"`                  //手机号
+        password string `json:"password"`              //密码
+        salt string `json:"salt,optional"`             //密码盐
+        avatar string `json:"avatar"`                  //头像
+        email string `json:"email"`                    //邮箱
+        loginFail int64 `json:"login_fail,optional"`   //登录失败次数
+        loginTime int64 `json:"login_time,optional"`   //登录时间
+        loginIp string `json:"login_ip,optional"`      //登录 ip
+        status string `json:"status"`                  //状态
+    }
+
+    AdminDetailReq{
+        id int64 `form:"id" validate:"required"`  //id
+    }
+    AdminDetailResp{
+        id int64 `json:"id"`                  //id
+        roleId int64 `json:"role_id"`         //角色组
+        account string `json:"account"`       //用户名
+        nickname string `json:"nickname"`     //昵称
+        mobile string `json:"mobile"`         //手机号
+        password string `json:"password"`     //密码
+        salt string `json:"salt"`             //密码盐
+        avatar string `json:"avatar"`         //头像
+        email string `json:"email"`           //邮箱
+        loginFail int64 `json:"login_fail"`   //登录失败次数
+        loginTime int64 `json:"login_time"`   //登录时间
+        loginIp string `json:"login_ip"`      //登录 ip
+        status string `json:"status"`         //状态
+        StatusText string `json:"status_text"`//状态描述
+        createTime int64 `json:"create_time"` //创建时间
+        updateTime int64 `json:"update_time"` //更新时间
+    }
+)
+
+@server(
+    jwt: Auth
+    middleware: CorsMiddleware,CheckSignMiddleware,TokenMiddleware
+    prefix: /api
+    group: admin
+)
+service exchange {
+    @doc(summary: "增加管理员")
+    @handler AdminAdd
+    post /admin (AdminAddReq) returns (AdminCommonResp);
+
+    @doc(summary: "修改管理员")
+    @handler AdminUpdate
+    put /admin (AdminUpdateReq) returns (AdminCommonResp);
+
+    @doc(summary: "删除管理员")
+    @handler AdminDelete
+    delete /admin (AdminDeleteReq) returns (AdminCommonResp);
+
+    @doc(summary: "管理员列表")
+    @handler AdminSearch
+    get /admin (AdminSearchReq) returns (AdminSearchResp);
+
+    @doc(summary: "管理员列表")
+    @handler AdminDetail
+    get /admin/detail (AdminDetailReq) returns (AdminDetailResp);
+}

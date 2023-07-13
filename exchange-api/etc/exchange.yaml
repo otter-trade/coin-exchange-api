@@ -1,0 +1,23 @@
+Name: exchange
+Host: 0.0.0.0
+Port: 8001
+Mode: dev
+
+Log:
+  ServiceName: exchange-api
+  Mode: console
+  Level: info
+  Compress: true
+  KeepDays: 7
+  Path: /data/logs/exchange-api
+
+Auth:
+  AccessSecret: f780efee-8a5c-43f0-8652-3e603c9dcb24
+  AccessExpire: 86400
+
+ExchangeRpc:
+  Timeout: 30000
+  Etcd:
+    Key: exchange.rpc
+    Hosts:
+      - 127.0.0.1:2379

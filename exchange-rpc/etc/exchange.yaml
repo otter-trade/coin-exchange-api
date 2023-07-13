@@ -1,0 +1,23 @@
+Name: exchange.rpc
+ListenOn: 127.0.0.1:9001
+Timeout: 5000
+Mode: dev
+
+Etcd:
+  Key: exchange.rpc
+  Hosts:
+  - 127.0.0.1:2379
+
+RedisConf:
+  Host: 127.0.0.1:6379
+  Type: node
+  Pass: G62m50oigInC30sf
+
+Log:
+  ServiceName: exchange-rpc
+  Mode: console
+  Path: /data/logs/exchange-rpc
+  Level: info
+  Compress: true
+  KeepDays: 7
+  StackCooldownMillis: 10
