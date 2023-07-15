@@ -1,1 +1,0 @@
-FindOne(ctx context.Context, {{.lowerStartCamelPrimaryKey}} {{.dataType}}) (*{{.upperStartCamelObject}},bool, error)
