@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/order"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/exchanges/order"
 )
 
 var (

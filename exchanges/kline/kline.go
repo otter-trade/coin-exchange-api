@@ -7,10 +7,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/order"
+	"github.com/otter-trade/coin-exchange-api/common"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/exchanges/order"
 )
 
 // CreateKline creates candles out of trade history data for a set time interval

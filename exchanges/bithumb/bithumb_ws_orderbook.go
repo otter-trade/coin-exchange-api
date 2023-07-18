@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/orderbook"
-	"github.com/thrasher-corp/gocryptotrader/log"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/exchanges/orderbook"
+	"github.com/otter-trade/coin-exchange-api/log"
 )
 
 const (

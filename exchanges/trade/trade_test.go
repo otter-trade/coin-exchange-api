@@ -7,13 +7,13 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/database"
-	"github.com/thrasher-corp/gocryptotrader/database/drivers"
-	sqltrade "github.com/thrasher-corp/gocryptotrader/database/repository/trade"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/kline"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/order"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/database"
+	"github.com/otter-trade/coin-exchange-api/database/drivers"
+	sqltrade "github.com/otter-trade/coin-exchange-api/database/repository/trade"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/exchanges/kline"
+	"github.com/otter-trade/coin-exchange-api/exchanges/order"
 )
 
 func TestAddTradesToBuffer(t *testing.T) {

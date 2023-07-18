@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/thrasher-corp/gocryptotrader/common/crypto"
-	"github.com/thrasher-corp/gocryptotrader/config"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/account"
-	"github.com/thrasher-corp/gocryptotrader/log"
+	"github.com/otter-trade/coin-exchange-api/common/crypto"
+	"github.com/otter-trade/coin-exchange-api/config"
+	"github.com/otter-trade/coin-exchange-api/exchanges/account"
+	"github.com/otter-trade/coin-exchange-api/log"
 )
 
 var (

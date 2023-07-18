@@ -14,7 +14,7 @@ require (
 	github.com/shopspring/decimal v1.3.1
 	github.com/spf13/viper v1.16.0
 	github.com/thrasher-corp/gct-ta v0.0.0-20200623072738-f2b55b7f9f41
-	github.com/thrasher-corp/gocryptotrader v0.0.0-20230712004923-da38b4bdf737
+	github.com/otter-trade/coin-exchange-api v0.0.0-20230712004923-da38b4bdf737
 	github.com/thrasher-corp/goose v2.7.0-rc4.0.20191002032028-0f2c2a27abdb+incompatible
 	github.com/thrasher-corp/sqlboiler v1.0.1-0.20191001234224-71e17f37a85e
 	github.com/urfave/cli/v2 v2.25.7

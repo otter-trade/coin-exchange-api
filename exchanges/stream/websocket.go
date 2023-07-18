@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/thrasher-corp/gocryptotrader/config"
-	"github.com/thrasher-corp/gocryptotrader/log"
+	"github.com/otter-trade/coin-exchange-api/config"
+	"github.com/otter-trade/coin-exchange-api/log"
 )
 
 const (

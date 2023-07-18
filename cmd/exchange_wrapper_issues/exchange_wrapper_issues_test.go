@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/thrasher-corp/gocryptotrader/currency"
+	"github.com/otter-trade/coin-exchange-api/currency"
 )
 
 func TestDisruptFormatting(t *testing.T) {

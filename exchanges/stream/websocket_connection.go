@@ -16,7 +16,7 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/thrasher-corp/gocryptotrader/log"
+	"github.com/otter-trade/coin-exchange-api/log"
 )
 
 // SendMessageReturnResponse will send a WS message to the connection and wait

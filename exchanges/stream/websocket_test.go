@@ -16,9 +16,9 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/thrasher-corp/gocryptotrader/config"
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/protocol"
+	"github.com/otter-trade/coin-exchange-api/config"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/exchanges/protocol"
 )
 
 const (

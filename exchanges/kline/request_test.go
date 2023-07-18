@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/common"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
 )
 
 func TestCreateKlineRequest(t *testing.T) {

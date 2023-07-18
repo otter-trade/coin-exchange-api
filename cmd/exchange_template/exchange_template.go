@@ -11,11 +11,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
-	"github.com/thrasher-corp/gocryptotrader/common/file"
-	"github.com/thrasher-corp/gocryptotrader/config"
-	"github.com/thrasher-corp/gocryptotrader/core"
-	"github.com/thrasher-corp/gocryptotrader/currency"
+	"github.com/otter-trade/coin-exchange-api/common"
+	"github.com/otter-trade/coin-exchange-api/common/file"
+	"github.com/otter-trade/coin-exchange-api/config"
+	"github.com/otter-trade/coin-exchange-api/core"
+	"github.com/otter-trade/coin-exchange-api/currency"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )

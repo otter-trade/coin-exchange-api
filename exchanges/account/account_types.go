@@ -5,10 +5,10 @@ import (
 	"sync"
 
 	"github.com/gofrs/uuid"
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/dispatch"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/alert"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/dispatch"
+	"github.com/otter-trade/coin-exchange-api/exchanges/alert"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
 )
 
 // Vars for the ticker package

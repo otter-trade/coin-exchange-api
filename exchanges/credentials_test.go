@@ -5,8 +5,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/thrasher-corp/gocryptotrader/config"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/account"
+	"github.com/otter-trade/coin-exchange-api/config"
+	"github.com/otter-trade/coin-exchange-api/exchanges/account"
 )
 
 func TestGetCredentials(t *testing.T) {

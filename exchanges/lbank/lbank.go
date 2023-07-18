@@ -17,11 +17,11 @@ import (
 	"strings"
 	"time"
 
-	gctcrypto "github.com/thrasher-corp/gocryptotrader/common/crypto"
-	exchange "github.com/thrasher-corp/gocryptotrader/exchanges"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/order"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/request"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/stream"
+	gctcrypto "github.com/otter-trade/coin-exchange-api/common/crypto"
+	exchange "github.com/otter-trade/coin-exchange-api/exchanges"
+	"github.com/otter-trade/coin-exchange-api/exchanges/order"
+	"github.com/otter-trade/coin-exchange-api/exchanges/request"
+	"github.com/otter-trade/coin-exchange-api/exchanges/stream"
 )
 
 // Lbank is the overarching type across this package

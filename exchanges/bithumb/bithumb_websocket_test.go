@@ -5,11 +5,11 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	exchange "github.com/thrasher-corp/gocryptotrader/exchanges"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/stream"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/ticker"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	exchange "github.com/otter-trade/coin-exchange-api/exchanges"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/exchanges/stream"
+	"github.com/otter-trade/coin-exchange-api/exchanges/ticker"
 )
 
 var (

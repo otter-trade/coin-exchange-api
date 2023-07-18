@@ -3,7 +3,7 @@ package datahistoryjobresult
 import (
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/database"
+	"github.com/otter-trade/coin-exchange-api/database"
 )
 
 // DataHistoryJobResult is a DTO for database data

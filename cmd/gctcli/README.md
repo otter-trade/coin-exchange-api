@@ -1,12 +1,12 @@
 # GoCryptoTrader gRPC client
 
-<img src="https://github.com/thrasher-corp/gocryptotrader/blob/master/web/src/assets/page-logo.png?raw=true" width="350px" height="350px" hspace="70">
+<img src="https://github.com/otter-trade/coin-exchange-api/blob/master/web/src/assets/page-logo.png?raw=true" width="350px" height="350px" hspace="70">
 
-[![Build Status](https://github.com/thrasher-corp/gocryptotrader/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/thrasher-corp/gocryptotrader/actions/workflows/tests.yml)
-[![Software License](https://img.shields.io/badge/License-MIT-orange.svg?style=flat-square)](https://github.com/thrasher-corp/gocryptotrader/blob/master/LICENSE)
-[![GoDoc](https://godoc.org/github.com/thrasher-corp/gocryptotrader?status.svg)](https://godoc.org/github.com/thrasher-corp/gocryptotrader)
-[![Coverage Status](http://codecov.io/github/thrasher-corp/gocryptotrader/coverage.svg?branch=master)](http://codecov.io/github/thrasher-corp/gocryptotrader?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/thrasher-corp/gocryptotrader)](https://goreportcard.com/report/github.com/thrasher-corp/gocryptotrader)
+[![Build Status](https://github.com/otter-trade/coin-exchange-api/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/otter-trade/coin-exchange-api/actions/workflows/tests.yml)
+[![Software License](https://img.shields.io/badge/License-MIT-orange.svg?style=flat-square)](https://github.com/otter-trade/coin-exchange-api/blob/master/LICENSE)
+[![GoDoc](https://godoc.org/github.com/otter-trade/coin-exchange-api?status.svg)](https://godoc.org/github.com/otter-trade/coin-exchange-api)
+[![Coverage Status](http://codecov.io/github/otter-trade/coin-exchange-api/coverage.svg?branch=master)](http://codecov.io/github/otter-trade/coin-exchange-api?branch=master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/otter-trade/coin-exchange-api)](https://goreportcard.com/report/github.com/otter-trade/coin-exchange-api)
 
 A cryptocurrency trading bot supporting multiple exchanges written in Golang.
 

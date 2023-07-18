@@ -12,11 +12,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
-	"github.com/thrasher-corp/gocryptotrader/common/timedmutex"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/mock"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/nonce"
-	"github.com/thrasher-corp/gocryptotrader/log"
+	"github.com/otter-trade/coin-exchange-api/common"
+	"github.com/otter-trade/coin-exchange-api/common/timedmutex"
+	"github.com/otter-trade/coin-exchange-api/exchanges/mock"
+	"github.com/otter-trade/coin-exchange-api/exchanges/nonce"
+	"github.com/otter-trade/coin-exchange-api/log"
 )
 
 const (

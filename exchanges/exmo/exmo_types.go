@@ -1,7 +1,7 @@
 package exmo
 
 import (
-	"github.com/thrasher-corp/gocryptotrader/currency"
+	"github.com/otter-trade/coin-exchange-api/currency"
 )
 
 // Trades holds trade data

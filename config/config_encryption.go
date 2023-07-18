@@ -10,8 +10,8 @@ import (
 	"io"
 	"log"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
-	"github.com/thrasher-corp/gocryptotrader/common/crypto"
+	"github.com/otter-trade/coin-exchange-api/common"
+	"github.com/otter-trade/coin-exchange-api/common/crypto"
 	"golang.org/x/crypto/scrypt"
 )
 

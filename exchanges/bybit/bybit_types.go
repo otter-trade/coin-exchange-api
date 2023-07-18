@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/common/convert"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/orderbook"
+	"github.com/otter-trade/coin-exchange-api/common/convert"
+	"github.com/otter-trade/coin-exchange-api/exchanges/orderbook"
 )
 
 var (

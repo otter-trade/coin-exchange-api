@@ -12,15 +12,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
-	"github.com/thrasher-corp/gocryptotrader/common/convert"
-	"github.com/thrasher-corp/gocryptotrader/common/crypto"
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	exchange "github.com/thrasher-corp/gocryptotrader/exchanges"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/kline"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/request"
-	"github.com/thrasher-corp/gocryptotrader/portfolio/withdraw"
+	"github.com/otter-trade/coin-exchange-api/common"
+	"github.com/otter-trade/coin-exchange-api/common/convert"
+	"github.com/otter-trade/coin-exchange-api/common/crypto"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	exchange "github.com/otter-trade/coin-exchange-api/exchanges"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/exchanges/kline"
+	"github.com/otter-trade/coin-exchange-api/exchanges/request"
+	"github.com/otter-trade/coin-exchange-api/portfolio/withdraw"
 )
 
 // Binanceus is the overarching type across this package

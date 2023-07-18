@@ -17,10 +17,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
-	"github.com/thrasher-corp/gocryptotrader/currency/forexprovider/base"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/request"
-	"github.com/thrasher-corp/gocryptotrader/log"
+	"github.com/otter-trade/coin-exchange-api/common"
+	"github.com/otter-trade/coin-exchange-api/currency/forexprovider/base"
+	"github.com/otter-trade/coin-exchange-api/exchanges/request"
+	"github.com/otter-trade/coin-exchange-api/log"
 )
 
 // Setup sets values for the OXR object

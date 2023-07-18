@@ -5,8 +5,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/thrasher-corp/gocryptotrader/common/convert"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/common/convert"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
 )
 
 func initTest(t *testing.T) *PairsManager {

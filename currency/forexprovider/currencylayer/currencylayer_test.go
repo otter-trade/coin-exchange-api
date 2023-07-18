@@ -3,7 +3,7 @@ package currencylayer
 import (
 	"testing"
 
-	"github.com/thrasher-corp/gocryptotrader/currency/forexprovider/base"
+	"github.com/otter-trade/coin-exchange-api/currency/forexprovider/base"
 )
 
 var c CurrencyLayer

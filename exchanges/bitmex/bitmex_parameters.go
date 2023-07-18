@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
+	"github.com/otter-trade/coin-exchange-api/common"
 )
 
 // Parameter just enforces a check on all outgoing data

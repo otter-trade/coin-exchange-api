@@ -5,9 +5,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
-	"github.com/thrasher-corp/gocryptotrader/common/convert"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/common"
+	"github.com/otter-trade/coin-exchange-api/common/convert"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
 )
 
 var (

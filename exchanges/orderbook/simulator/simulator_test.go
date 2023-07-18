@@ -4,10 +4,10 @@ import (
 	"context"
 	"testing"
 
-	"github.com/thrasher-corp/gocryptotrader/common/convert"
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/bitstamp"
+	"github.com/otter-trade/coin-exchange-api/common/convert"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/exchanges/bitstamp"
 )
 
 func TestSimulate(t *testing.T) {

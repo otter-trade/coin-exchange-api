@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/gofrs/uuid"
-	"github.com/thrasher-corp/gocryptotrader/dispatch"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/alert"
-	"github.com/thrasher-corp/gocryptotrader/log"
+	"github.com/otter-trade/coin-exchange-api/dispatch"
+	"github.com/otter-trade/coin-exchange-api/exchanges/alert"
+	"github.com/otter-trade/coin-exchange-api/log"
 )
 
 var (

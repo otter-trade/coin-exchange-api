@@ -3,7 +3,7 @@ package bybit
 import (
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/common/convert"
+	"github.com/otter-trade/coin-exchange-api/common/convert"
 )
 
 var (

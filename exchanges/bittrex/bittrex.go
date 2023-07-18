@@ -11,12 +11,12 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
-	"github.com/thrasher-corp/gocryptotrader/common/crypto"
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	exchange "github.com/thrasher-corp/gocryptotrader/exchanges"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/kline"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/request"
+	"github.com/otter-trade/coin-exchange-api/common"
+	"github.com/otter-trade/coin-exchange-api/common/crypto"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	exchange "github.com/otter-trade/coin-exchange-api/exchanges"
+	"github.com/otter-trade/coin-exchange-api/exchanges/kline"
+	"github.com/otter-trade/coin-exchange-api/exchanges/request"
 )
 
 // Bittrex is the overaching type across the bittrex methods

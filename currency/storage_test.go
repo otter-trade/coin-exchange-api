@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/thrasher-corp/gocryptotrader/database/testhelpers"
+	"github.com/otter-trade/coin-exchange-api/database/testhelpers"
 )
 
 func TestMain(m *testing.M) {

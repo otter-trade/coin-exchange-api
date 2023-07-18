@@ -8,11 +8,11 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/common/file"
-	"github.com/thrasher-corp/gocryptotrader/currency/coinmarketcap"
-	"github.com/thrasher-corp/gocryptotrader/currency/forexprovider"
-	"github.com/thrasher-corp/gocryptotrader/currency/forexprovider/base"
-	"github.com/thrasher-corp/gocryptotrader/log"
+	"github.com/otter-trade/coin-exchange-api/common/file"
+	"github.com/otter-trade/coin-exchange-api/currency/coinmarketcap"
+	"github.com/otter-trade/coin-exchange-api/currency/forexprovider"
+	"github.com/otter-trade/coin-exchange-api/currency/forexprovider/base"
+	"github.com/otter-trade/coin-exchange-api/log"
 )
 
 // storage is an overarching type that keeps track of and updates currency,

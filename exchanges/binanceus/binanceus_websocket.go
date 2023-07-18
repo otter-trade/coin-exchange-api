@@ -11,14 +11,14 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/order"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/orderbook"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/stream"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/ticker"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/trade"
-	"github.com/thrasher-corp/gocryptotrader/log"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/exchanges/order"
+	"github.com/otter-trade/coin-exchange-api/exchanges/orderbook"
+	"github.com/otter-trade/coin-exchange-api/exchanges/stream"
+	"github.com/otter-trade/coin-exchange-api/exchanges/ticker"
+	"github.com/otter-trade/coin-exchange-api/exchanges/trade"
+	"github.com/otter-trade/coin-exchange-api/log"
 )
 
 const (

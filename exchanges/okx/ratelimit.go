@@ -5,7 +5,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/exchanges/request"
+	"github.com/otter-trade/coin-exchange-api/exchanges/request"
 	"golang.org/x/time/rate"
 )
 

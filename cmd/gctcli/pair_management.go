@@ -3,8 +3,8 @@ package main
 import (
 	"strings"
 
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/gctrpc"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/gctrpc"
 	"github.com/urfave/cli/v2"
 )
 

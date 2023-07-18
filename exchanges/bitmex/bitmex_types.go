@@ -3,7 +3,7 @@ package bitmex
 import (
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/exchanges/order"
+	"github.com/otter-trade/coin-exchange-api/exchanges/order"
 )
 
 // RequestError allows for a general error capture from requests

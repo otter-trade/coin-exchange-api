@@ -1,7 +1,7 @@
 package gemini
 
 import (
-	"github.com/thrasher-corp/gocryptotrader/currency"
+	"github.com/otter-trade/coin-exchange-api/currency"
 )
 
 const (

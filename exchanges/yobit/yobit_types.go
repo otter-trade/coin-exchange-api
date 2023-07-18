@@ -1,6 +1,6 @@
 package yobit
 
-import "github.com/thrasher-corp/gocryptotrader/currency"
+import "github.com/otter-trade/coin-exchange-api/currency"
 
 // Response is a generic struct used for exchange API request result
 type Response struct {

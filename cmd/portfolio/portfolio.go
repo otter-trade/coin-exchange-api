@@ -7,10 +7,10 @@ import (
 	"log"
 	"os"
 
-	"github.com/thrasher-corp/gocryptotrader/config"
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/bitfinex"
-	"github.com/thrasher-corp/gocryptotrader/portfolio"
+	"github.com/otter-trade/coin-exchange-api/config"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/exchanges/bitfinex"
+	"github.com/otter-trade/coin-exchange-api/portfolio"
 )
 
 var (

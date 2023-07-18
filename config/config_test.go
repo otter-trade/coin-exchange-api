@@ -9,17 +9,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
-	"github.com/thrasher-corp/gocryptotrader/common/convert"
-	"github.com/thrasher-corp/gocryptotrader/common/file"
-	"github.com/thrasher-corp/gocryptotrader/communications/base"
-	"github.com/thrasher-corp/gocryptotrader/connchecker"
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/database"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
-	gctscript "github.com/thrasher-corp/gocryptotrader/gctscript/vm"
-	"github.com/thrasher-corp/gocryptotrader/log"
-	"github.com/thrasher-corp/gocryptotrader/portfolio/banking"
+	"github.com/otter-trade/coin-exchange-api/common"
+	"github.com/otter-trade/coin-exchange-api/common/convert"
+	"github.com/otter-trade/coin-exchange-api/common/file"
+	"github.com/otter-trade/coin-exchange-api/communications/base"
+	"github.com/otter-trade/coin-exchange-api/connchecker"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/database"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
+	gctscript "github.com/otter-trade/coin-exchange-api/gctscript/vm"
+	"github.com/otter-trade/coin-exchange-api/log"
+	"github.com/otter-trade/coin-exchange-api/portfolio/banking"
 )
 
 const (

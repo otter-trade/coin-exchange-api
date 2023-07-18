@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	exchangeDB "github.com/thrasher-corp/gocryptotrader/database/repository/exchange"
-	exchange "github.com/thrasher-corp/gocryptotrader/exchanges"
+	exchangeDB "github.com/otter-trade/coin-exchange-api/database/repository/exchange"
+	exchange "github.com/otter-trade/coin-exchange-api/exchanges"
 	"github.com/urfave/cli/v2"
 )
 

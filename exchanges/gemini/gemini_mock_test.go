@@ -9,9 +9,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/thrasher-corp/gocryptotrader/config"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/mock"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/sharedtestvalues"
+	"github.com/otter-trade/coin-exchange-api/config"
+	"github.com/otter-trade/coin-exchange-api/exchanges/mock"
+	"github.com/otter-trade/coin-exchange-api/exchanges/sharedtestvalues"
 )
 
 const mockFile = "../../testdata/http_mock/gemini/gemini.json"

@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	exchange "github.com/thrasher-corp/gocryptotrader/exchanges"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/stream"
+	exchange "github.com/otter-trade/coin-exchange-api/exchanges"
+	"github.com/otter-trade/coin-exchange-api/exchanges/stream"
 )
 
 // This package is only to be referenced in test files

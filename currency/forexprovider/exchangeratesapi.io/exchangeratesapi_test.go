@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/currency/forexprovider/base"
+	"github.com/otter-trade/coin-exchange-api/currency/forexprovider/base"
 )
 
 var e ExchangeRates

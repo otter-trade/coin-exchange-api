@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/exchanges/alert"
+	"github.com/otter-trade/coin-exchange-api/exchanges/alert"
 )
 
 var errNoLiquidity = errors.New("no liquidity")

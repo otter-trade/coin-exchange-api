@@ -4,8 +4,8 @@ import (
 	"time"
 
 	"github.com/shopspring/decimal"
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
 )
 
 // RateHistoryRequest is used to request a funding rate

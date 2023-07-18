@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
+	"github.com/otter-trade/coin-exchange-api/common"
 )
 
 // this doesn't need to be included in binary

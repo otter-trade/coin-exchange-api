@@ -13,9 +13,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
-	"github.com/thrasher-corp/gocryptotrader/common/crypto"
-	"github.com/thrasher-corp/gocryptotrader/common/file"
+	"github.com/otter-trade/coin-exchange-api/common"
+	"github.com/otter-trade/coin-exchange-api/common/crypto"
+	"github.com/otter-trade/coin-exchange-api/common/file"
 )
 
 // HTTPResponse defines expected response from the end point including request

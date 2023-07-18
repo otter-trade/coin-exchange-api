@@ -6,13 +6,13 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/thrasher-corp/gocryptotrader/currency/forexprovider/base"
-	currencyconverter "github.com/thrasher-corp/gocryptotrader/currency/forexprovider/currencyconverterapi"
-	"github.com/thrasher-corp/gocryptotrader/currency/forexprovider/currencylayer"
-	exchangeratehost "github.com/thrasher-corp/gocryptotrader/currency/forexprovider/exchangerate.host"
-	exchangerates "github.com/thrasher-corp/gocryptotrader/currency/forexprovider/exchangeratesapi.io"
-	fixer "github.com/thrasher-corp/gocryptotrader/currency/forexprovider/fixer.io"
-	"github.com/thrasher-corp/gocryptotrader/currency/forexprovider/openexchangerates"
+	"github.com/otter-trade/coin-exchange-api/currency/forexprovider/base"
+	currencyconverter "github.com/otter-trade/coin-exchange-api/currency/forexprovider/currencyconverterapi"
+	"github.com/otter-trade/coin-exchange-api/currency/forexprovider/currencylayer"
+	exchangeratehost "github.com/otter-trade/coin-exchange-api/currency/forexprovider/exchangerate.host"
+	exchangerates "github.com/otter-trade/coin-exchange-api/currency/forexprovider/exchangeratesapi.io"
+	fixer "github.com/otter-trade/coin-exchange-api/currency/forexprovider/fixer.io"
+	"github.com/otter-trade/coin-exchange-api/currency/forexprovider/openexchangerates"
 )
 
 var (

@@ -6,9 +6,9 @@ import (
 	"reflect"
 	"testing"
 
-	gctfile "github.com/thrasher-corp/gocryptotrader/common/file"
-	exchange "github.com/thrasher-corp/gocryptotrader/exchanges"
-	"github.com/thrasher-corp/gocryptotrader/log"
+	gctfile "github.com/otter-trade/coin-exchange-api/common/file"
+	exchange "github.com/otter-trade/coin-exchange-api/exchanges"
+	"github.com/otter-trade/coin-exchange-api/log"
 )
 
 var (

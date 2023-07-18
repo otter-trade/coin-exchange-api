@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/currency"
-	"github.com/thrasher-corp/gocryptotrader/dispatch"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/asset"
+	"github.com/otter-trade/coin-exchange-api/currency"
+	"github.com/otter-trade/coin-exchange-api/dispatch"
+	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
 )
 
 func TestMain(m *testing.M) {

@@ -18,7 +18,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/thrasher-corp/gocryptotrader/common"
+	"github.com/otter-trade/coin-exchange-api/common"
 	"golang.org/x/time/rate"
 )
 

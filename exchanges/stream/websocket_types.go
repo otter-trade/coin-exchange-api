@@ -5,11 +5,11 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/thrasher-corp/gocryptotrader/config"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/fill"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/protocol"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/stream/buffer"
-	"github.com/thrasher-corp/gocryptotrader/exchanges/trade"
+	"github.com/otter-trade/coin-exchange-api/config"
+	"github.com/otter-trade/coin-exchange-api/exchanges/fill"
+	"github.com/otter-trade/coin-exchange-api/exchanges/protocol"
+	"github.com/otter-trade/coin-exchange-api/exchanges/stream/buffer"
+	"github.com/otter-trade/coin-exchange-api/exchanges/trade"
 )
 
 // Websocket functionality list and state consts

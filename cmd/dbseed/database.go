@@ -4,11 +4,11 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/thrasher-corp/gocryptotrader/config"
-	"github.com/thrasher-corp/gocryptotrader/database"
-	dbPSQL "github.com/thrasher-corp/gocryptotrader/database/drivers/postgres"
-	dbsqlite3 "github.com/thrasher-corp/gocryptotrader/database/drivers/sqlite3"
-	"github.com/thrasher-corp/gocryptotrader/database/repository"
+	"github.com/otter-trade/coin-exchange-api/config"
+	"github.com/otter-trade/coin-exchange-api/database"
+	dbPSQL "github.com/otter-trade/coin-exchange-api/database/drivers/postgres"
+	dbsqlite3 "github.com/otter-trade/coin-exchange-api/database/drivers/sqlite3"
+	"github.com/otter-trade/coin-exchange-api/database/repository"
 	"github.com/thrasher-corp/sqlboiler/boil"
 	"github.com/urfave/cli/v2"
 )
