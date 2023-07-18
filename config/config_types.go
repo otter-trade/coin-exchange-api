@@ -5,11 +5,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/otter-trade/coin-exchange-api/communications/base"
 	"github.com/otter-trade/coin-exchange-api/currency"
 	"github.com/otter-trade/coin-exchange-api/database"
 	"github.com/otter-trade/coin-exchange-api/exchanges/protocol"
-	gctscript "github.com/otter-trade/coin-exchange-api/gctscript/vm"
 	"github.com/otter-trade/coin-exchange-api/log"
 	"github.com/otter-trade/coin-exchange-api/portfolio"
 	"github.com/otter-trade/coin-exchange-api/portfolio/banking"
@@ -87,9 +85,7 @@ type Config struct {
 	CurrencyStateManager CurrencyStateManager      `json:"currencyStateManager"`
 	Profiler             Profiler                  `json:"profiler"`
 	NTPClient            NTPClientConfig           `json:"ntpclient"`
-	GCTScript            gctscript.Config          `json:"gctscript"`
 	Currency             currency.Config           `json:"currencyConfig"`
-	Communications       base.CommunicationsConfig `json:"communications"`
 	RemoteControl        RemoteControlConfig       `json:"remoteControl"`
 	Portfolio            portfolio.Base            `json:"portfolioAddresses"`
 	Exchanges            []Exchange                `json:"exchanges"`
@@ -100,7 +96,6 @@ type Config struct {
 	CurrencyPairFormat  *currency.PairFormat  `json:"currencyPairFormat,omitempty"`
 	FiatDisplayCurrency *currency.Code        `json:"fiatDispayCurrency,omitempty"`
 	Cryptocurrencies    *currency.Currencies  `json:"cryptocurrencies,omitempty"`
-	SMS                 *base.SMSGlobalConfig `json:"smsGlobal,omitempty"`
 	// encryption session values
 	storedSalt []byte
 	sessionDK  []byte

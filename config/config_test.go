@@ -12,7 +12,6 @@ import (
 	"github.com/otter-trade/coin-exchange-api/common"
 	"github.com/otter-trade/coin-exchange-api/common/convert"
 	"github.com/otter-trade/coin-exchange-api/common/file"
-	"github.com/otter-trade/coin-exchange-api/communications/base"
 	"github.com/otter-trade/coin-exchange-api/currency"
 	"github.com/otter-trade/coin-exchange-api/database"
 	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
@@ -385,91 +384,6 @@ func TestUpdateCryptocurrencyProviderConfig(t *testing.T) {
 	}
 }
 
-func TestCheckCommunicationsConfig(t *testing.T) {
-	t.Parallel()
-	cfg := &Config{
-		Communications: base.CommunicationsConfig{},
-	}
-	cfg.CheckCommunicationsConfig()
-	if cfg.Communications.SlackConfig.Name != "Slack" ||
-		cfg.Communications.SMSGlobalConfig.Name != "SMSGlobal" ||
-		cfg.Communications.SMTPConfig.Name != "SMTP" ||
-		cfg.Communications.TelegramConfig.Name != "Telegram" {
-		t.Error("CheckCommunicationsConfig unexpected data:",
-			cfg.Communications)
-	}
-
-	cfg.SMS = &base.SMSGlobalConfig{}
-	cfg.Communications.SMSGlobalConfig.Name = ""
-	cfg.CheckCommunicationsConfig()
-	if cfg.Communications.SMSGlobalConfig.Password != testString {
-		t.Error("incorrect password")
-	}
-
-	cfg.SMS.Contacts = append(cfg.SMS.Contacts, base.SMSContact{
-		Name:    "Bobby",
-		Number:  "4321",
-		Enabled: false,
-	})
-	cfg.Communications.SMSGlobalConfig.Name = ""
-	cfg.CheckCommunicationsConfig()
-	if cfg.Communications.SMSGlobalConfig.Contacts[0].Name != "Bobby" {
-		t.Error("incorrect name")
-	}
-
-	cfg.Communications.SMSGlobalConfig.From = ""
-	cfg.CheckCommunicationsConfig()
-	if cfg.Communications.SMSGlobalConfig.From != cfg.Name {
-		t.Error("CheckCommunicationsConfig From value should have been set to the config name")
-	}
-
-	cfg.Communications.SMSGlobalConfig.From = "aaaaaaaaaaaaaaaaaaa"
-	cfg.CheckCommunicationsConfig()
-	if cfg.Communications.SMSGlobalConfig.From != "aaaaaaaaaaa" {
-		t.Error("CheckCommunicationsConfig From value should have been trimmed to 11 characters")
-	}
-
-	cfg.SMS = &base.SMSGlobalConfig{}
-	cfg.CheckCommunicationsConfig()
-	if cfg.SMS != nil {
-		t.Error("CheckCommunicationsConfig unexpected data:",
-			cfg.SMS)
-	}
-
-	cfg.Communications.SlackConfig.Name = "NOT Slack"
-	cfg.CheckCommunicationsConfig()
-
-	cfg.Communications.SlackConfig.Name = "Slack"
-	cfg.Communications.SlackConfig.Enabled = true
-	cfg.CheckCommunicationsConfig()
-	if cfg.Communications.SlackConfig.Enabled {
-		t.Error("CheckCommunicationsConfig Slack is enabled when it shouldn't be.")
-	}
-
-	cfg.Communications.SlackConfig.Enabled = false
-	cfg.Communications.SMSGlobalConfig.Enabled = true
-	cfg.Communications.SMSGlobalConfig.Password = ""
-	cfg.CheckCommunicationsConfig()
-	if cfg.Communications.SlackConfig.Enabled {
-		t.Error("CheckCommunicationsConfig SMSGlobal is enabled when it shouldn't be.")
-	}
-
-	cfg.Communications.SMSGlobalConfig.Enabled = false
-	cfg.Communications.SMTPConfig.Enabled = true
-	cfg.Communications.SMTPConfig.AccountPassword = ""
-	cfg.CheckCommunicationsConfig()
-	if cfg.Communications.SlackConfig.Enabled {
-		t.Error("CheckCommunicationsConfig SMTPConfig is enabled when it shouldn't be.")
-	}
-
-	cfg.Communications.SMTPConfig.Enabled = false
-	cfg.Communications.TelegramConfig.Enabled = true
-	cfg.Communications.TelegramConfig.VerificationToken = ""
-	cfg.CheckCommunicationsConfig()
-	if cfg.Communications.TelegramConfig.Enabled {
-		t.Error("CheckCommunicationsConfig TelegramConfig is enabled when it shouldn't be.")
-	}
-}
 
 func TestGetExchangeAssetTypes(t *testing.T) {
 	t.Parallel()
