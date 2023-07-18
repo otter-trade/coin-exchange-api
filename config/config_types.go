@@ -18,7 +18,7 @@ const (
 	FXProviderFixer                      = "fixer"
 	EncryptedFile                        = "config.dat"
 	File                                 = "config.json"
-	TestFile                             = "./testdata/configtest.json"
+	TestFile                             = "../testdata/configtest.json"
 	fileEncryptionPrompt                 = 0
 	fileEncryptionEnabled                = 1
 	fileEncryptionDisabled               = -1
@@ -73,29 +73,29 @@ var (
 // prestart management of Portfolio, Communications, Webserver and Enabled
 // Exchanges
 type Config struct {
-	Name                 string                    `json:"name"`
-	DataDirectory        string                    `json:"dataDirectory"`
-	EncryptConfig        int                       `json:"encryptConfig"`
-	GlobalHTTPTimeout    time.Duration             `json:"globalHTTPTimeout"`
-	Database             database.Config           `json:"database"`
-	Logging              log.Config                `json:"logging"`
-	ConnectionMonitor    ConnectionMonitorConfig   `json:"connectionMonitor"`
-	OrderManager         OrderManager              `json:"orderManager"`
-	DataHistoryManager   DataHistoryManager        `json:"dataHistoryManager"`
-	CurrencyStateManager CurrencyStateManager      `json:"currencyStateManager"`
-	Profiler             Profiler                  `json:"profiler"`
-	NTPClient            NTPClientConfig           `json:"ntpclient"`
-	Currency             currency.Config           `json:"currencyConfig"`
-	RemoteControl        RemoteControlConfig       `json:"remoteControl"`
-	Portfolio            portfolio.Base            `json:"portfolioAddresses"`
-	Exchanges            []Exchange                `json:"exchanges"`
-	BankAccounts         []banking.Account         `json:"bankAccounts"`
+	Name                 string                  `json:"name"`
+	DataDirectory        string                  `json:"dataDirectory"`
+	EncryptConfig        int                     `json:"encryptConfig"`
+	GlobalHTTPTimeout    time.Duration           `json:"globalHTTPTimeout"`
+	Database             database.Config         `json:"database"`
+	Logging              log.Config              `json:"logging"`
+	ConnectionMonitor    ConnectionMonitorConfig `json:"connectionMonitor"`
+	OrderManager         OrderManager            `json:"orderManager"`
+	DataHistoryManager   DataHistoryManager      `json:"dataHistoryManager"`
+	CurrencyStateManager CurrencyStateManager    `json:"currencyStateManager"`
+	Profiler             Profiler                `json:"profiler"`
+	NTPClient            NTPClientConfig         `json:"ntpclient"`
+	Currency             currency.Config         `json:"currencyConfig"`
+	RemoteControl        RemoteControlConfig     `json:"remoteControl"`
+	Portfolio            portfolio.Base          `json:"portfolioAddresses"`
+	Exchanges            []Exchange              `json:"exchanges"`
+	BankAccounts         []banking.Account       `json:"bankAccounts"`
 
 	// Deprecated config settings, will be removed at a future date
-	Webserver           *WebserverConfig      `json:"webserver,omitempty"`
-	CurrencyPairFormat  *currency.PairFormat  `json:"currencyPairFormat,omitempty"`
-	FiatDisplayCurrency *currency.Code        `json:"fiatDispayCurrency,omitempty"`
-	Cryptocurrencies    *currency.Currencies  `json:"cryptocurrencies,omitempty"`
+	Webserver           *WebserverConfig     `json:"webserver,omitempty"`
+	CurrencyPairFormat  *currency.PairFormat `json:"currencyPairFormat,omitempty"`
+	FiatDisplayCurrency *currency.Code       `json:"fiatDispayCurrency,omitempty"`
+	Cryptocurrencies    *currency.Currencies `json:"cryptocurrencies,omitempty"`
 	// encryption session values
 	storedSalt []byte
 	sessionDK  []byte

@@ -1040,7 +1040,6 @@ func (c *Config) CheckLoggerConfig() error {
 	return log.SetLogPath(logPath)
 }
 
-
 func (c *Config) checkDatabaseConfig() error {
 	m.Lock()
 	defer m.Unlock()
@@ -1171,7 +1170,6 @@ func (c *Config) CheckOrderManagerConfig() {
 		c.OrderManager.FuturesTrackingSeekDuration = -time.Hour * 24 * 365
 	}
 }
-
 
 // DefaultFilePath returns the default config file path
 // MacOS/Linux: $HOME/.gocryptotrader/config.json or config.dat
@@ -1496,7 +1494,6 @@ func (c *Config) CheckConfig() error {
 	c.CheckDataHistoryMonitorConfig()
 	c.CheckCurrencyStateManager()
 	c.CheckOrderManagerConfig()
-	c.CheckCommunicationsConfig()
 	c.CheckClientBankAccounts()
 	c.CheckBankAccountConfig()
 	c.CheckRemoteControlConfig()
@@ -1542,7 +1539,6 @@ func (c *Config) UpdateConfig(configPath string, newCfg *Config, dryrun bool) er
 	c.Currency = newCfg.Currency
 	c.GlobalHTTPTimeout = newCfg.GlobalHTTPTimeout
 	c.Portfolio = newCfg.Portfolio
-	c.Communications = newCfg.Communications
 	c.Webserver = newCfg.Webserver
 	c.Exchanges = newCfg.Exchanges
 
