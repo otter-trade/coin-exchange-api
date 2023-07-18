@@ -13,11 +13,9 @@ import (
 	"github.com/otter-trade/coin-exchange-api/common/convert"
 	"github.com/otter-trade/coin-exchange-api/common/file"
 	"github.com/otter-trade/coin-exchange-api/communications/base"
-	"github.com/otter-trade/coin-exchange-api/connchecker"
 	"github.com/otter-trade/coin-exchange-api/currency"
 	"github.com/otter-trade/coin-exchange-api/database"
 	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
-	gctscript "github.com/otter-trade/coin-exchange-api/gctscript/vm"
 	"github.com/otter-trade/coin-exchange-api/log"
 	"github.com/otter-trade/coin-exchange-api/portfolio/banking"
 )
@@ -1743,23 +1741,7 @@ func TestSaveConfigToFile(t *testing.T) {
 	}
 }
 
-func TestCheckConnectionMonitorConfig(t *testing.T) {
-	t.Parallel()
 
-	var c Config
-	c.ConnectionMonitor.CheckInterval = 0
-	c.ConnectionMonitor.DNSList = nil
-	c.ConnectionMonitor.PublicDomainList = nil
-	c.CheckConnectionMonitorConfig()
-
-	if c.ConnectionMonitor.CheckInterval != connchecker.DefaultCheckInterval ||
-		len(common.StringSliceDifference(
-			c.ConnectionMonitor.DNSList, connchecker.DefaultDNSList)) != 0 ||
-		len(common.StringSliceDifference(
-			c.ConnectionMonitor.PublicDomainList, connchecker.DefaultDomainList)) != 0 {
-		t.Error("unexpected values")
-	}
-}
 
 func TestDefaultFilePath(t *testing.T) {
 	// This is tricky to test because we're dealing with a config file stored
@@ -1973,22 +1955,7 @@ func TestDisableNTPCheck(t *testing.T) {
 	}
 }
 
-func TestCheckGCTScriptConfig(t *testing.T) {
-	t.Parallel()
 
-	var c Config
-	if err := c.checkGCTScriptConfig(); err != nil {
-		t.Error(err)
-	}
-
-	if c.GCTScript.ScriptTimeout != gctscript.DefaultTimeoutValue {
-		t.Fatal("unexpected value return")
-	}
-
-	if c.GCTScript.MaxVirtualMachines != gctscript.DefaultMaxVirtualMachines {
-		t.Fatal("unexpected value return")
-	}
-}
 
 func TestCheckDatabaseConfig(t *testing.T) {
 	t.Parallel()

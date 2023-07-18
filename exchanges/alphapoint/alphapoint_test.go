@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"github.com/otter-trade/coin-exchange-api/common"
-	"github.com/otter-trade/coin-exchange-api/core"
 	"github.com/otter-trade/coin-exchange-api/currency"
 	exchange "github.com/otter-trade/coin-exchange-api/exchanges"
 	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
@@ -22,6 +21,7 @@ const (
 	apiKey                  = ""
 	apiSecret               = ""
 	canManipulateRealOrders = false
+   BitcoinDonationAddress  = "bc1qk0jareu4jytc0cfrhr5wgshsq8282awpavfahc"
 )
 
 var a = &Alphapoint{}
@@ -484,7 +484,7 @@ func TestCancelExchangeOrder(t *testing.T) {
 	currencyPair := currency.NewPair(currency.BTC, currency.LTC)
 	var orderCancellation = &order.Cancel{
 		OrderID:       "1",
-		WalletAddress: core.BitcoinDonationAddress,
+		WalletAddress: BitcoinDonationAddress,
 		AccountID:     "1",
 		Pair:          currencyPair,
 		AssetType:     asset.Spot,
@@ -506,7 +506,7 @@ func TestCancelAllExchangeOrders(t *testing.T) {
 	currencyPair := currency.NewPair(currency.BTC, currency.LTC)
 	var orderCancellation = &order.Cancel{
 		OrderID:       "1",
-		WalletAddress: core.BitcoinDonationAddress,
+		WalletAddress: BitcoinDonationAddress,
 		AccountID:     "1",
 		Pair:          currencyPair,
 		AssetType:     asset.Spot,

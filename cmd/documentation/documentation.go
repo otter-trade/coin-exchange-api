@@ -16,7 +16,6 @@ import (
 
 	"github.com/otter-trade/coin-exchange-api/common"
 	"github.com/otter-trade/coin-exchange-api/common/file"
-	"github.com/otter-trade/coin-exchange-api/core"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
@@ -136,7 +135,6 @@ func main() {
 		repoDir = wd
 	}
 
-	fmt.Print(core.Banner)
 	fmt.Println("This will update and regenerate documentation for the different packages in your repo.")
 	fmt.Println()
 
@@ -481,7 +479,6 @@ func GetDocumentationAttributes(packageName string, contributors []Contributor) 
 		NameURL:         GetGoDocURL(packageName),
 		Year:            time.Now().Year(),
 		CapitalName:     GetPackageName(packageName, true),
-		DonationAddress: core.BitcoinDonationAddress,
 	}
 }
 

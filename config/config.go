@@ -17,13 +17,10 @@ import (
 	"github.com/otter-trade/coin-exchange-api/common"
 	"github.com/otter-trade/coin-exchange-api/common/convert"
 	"github.com/otter-trade/coin-exchange-api/common/file"
-	"github.com/otter-trade/coin-exchange-api/communications/base"
-	"github.com/otter-trade/coin-exchange-api/connchecker"
 	"github.com/otter-trade/coin-exchange-api/currency"
 	"github.com/otter-trade/coin-exchange-api/currency/forexprovider"
 	"github.com/otter-trade/coin-exchange-api/database"
 	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
-	gctscript "github.com/otter-trade/coin-exchange-api/gctscript/vm"
 	"github.com/otter-trade/coin-exchange-api/log"
 	"github.com/otter-trade/coin-exchange-api/portfolio/banking"
 )
@@ -173,178 +170,6 @@ func (c *Config) PurgeExchangeAPICredentials() {
 
 		c.Exchanges[x].API.Credentials.PEMKey = ""
 		c.Exchanges[x].API.Credentials.OTPSecret = ""
-	}
-}
-
-// GetCommunicationsConfig returns the communications configuration
-func (c *Config) GetCommunicationsConfig() base.CommunicationsConfig {
-	m.Lock()
-	comms := c.Communications
-	m.Unlock()
-	return comms
-}
-
-// UpdateCommunicationsConfig sets a new updated version of a Communications
-// configuration
-func (c *Config) UpdateCommunicationsConfig(config *base.CommunicationsConfig) {
-	m.Lock()
-	c.Communications = *config
-	m.Unlock()
-}
-
-// GetCryptocurrencyProviderConfig returns the communications configuration
-func (c *Config) GetCryptocurrencyProviderConfig() currency.Provider {
-	m.Lock()
-	provider := c.Currency.CryptocurrencyProvider
-	m.Unlock()
-	return provider
-}
-
-// UpdateCryptocurrencyProviderConfig returns the communications configuration
-func (c *Config) UpdateCryptocurrencyProviderConfig(config currency.Provider) {
-	m.Lock()
-	c.Currency.CryptocurrencyProvider = config
-	m.Unlock()
-}
-
-// CheckCommunicationsConfig checks to see if the variables are set correctly
-// from config.json
-func (c *Config) CheckCommunicationsConfig() {
-	m.Lock()
-	defer m.Unlock()
-
-	// If the communications config hasn't been populated, populate
-	// with example settings
-
-	if c.Communications.SlackConfig.Name == "" {
-		c.Communications.SlackConfig = base.SlackConfig{
-			Name:              "Slack",
-			TargetChannel:     "general",
-			VerificationToken: "testtest",
-		}
-	}
-
-	if c.Communications.SMSGlobalConfig.Name == "" {
-		if c.SMS != nil {
-			if c.SMS.Contacts != nil {
-				c.Communications.SMSGlobalConfig = base.SMSGlobalConfig{
-					Name:     "SMSGlobal",
-					Enabled:  c.SMS.Enabled,
-					Verbose:  c.SMS.Verbose,
-					Username: c.SMS.Username,
-					Password: c.SMS.Password,
-					Contacts: c.SMS.Contacts,
-				}
-				// flush old SMS config
-				c.SMS = nil
-			} else {
-				c.Communications.SMSGlobalConfig = base.SMSGlobalConfig{
-					Name:     "SMSGlobal",
-					From:     c.Name,
-					Username: "main",
-					Password: "test",
-
-					Contacts: []base.SMSContact{
-						{
-							Name:    "bob",
-							Number:  "1234",
-							Enabled: false,
-						},
-					},
-				}
-			}
-		} else {
-			c.Communications.SMSGlobalConfig = base.SMSGlobalConfig{
-				Name:     "SMSGlobal",
-				Username: "main",
-				Password: "test",
-
-				Contacts: []base.SMSContact{
-					{
-						Name:    "bob",
-						Number:  "1234",
-						Enabled: false,
-					},
-				},
-			}
-		}
-	} else {
-		if c.Communications.SMSGlobalConfig.From == "" {
-			c.Communications.SMSGlobalConfig.From = c.Name
-		}
-
-		if len(c.Communications.SMSGlobalConfig.From) > 11 {
-			log.Warnf(log.ConfigMgr, "SMSGlobal config supplied from name exceeds 11 characters, trimming.\n")
-			c.Communications.SMSGlobalConfig.From = c.Communications.SMSGlobalConfig.From[:11]
-		}
-
-		if c.SMS != nil {
-			// flush old SMS config
-			c.SMS = nil
-		}
-	}
-
-	if c.Communications.SMTPConfig.Name == "" {
-		c.Communications.SMTPConfig = base.SMTPConfig{
-			Name:            "SMTP",
-			Host:            "smtp.google.com",
-			Port:            "537",
-			AccountName:     "some",
-			AccountPassword: "password",
-			RecipientList:   "lol123@gmail.com",
-		}
-	}
-
-	if c.Communications.TelegramConfig.Name == "" {
-		c.Communications.TelegramConfig = base.TelegramConfig{
-			Name:              "Telegram",
-			VerificationToken: "testest",
-		}
-	}
-
-	if c.Communications.TelegramConfig.AuthorisedClients == nil {
-		c.Communications.TelegramConfig.AuthorisedClients = map[string]int64{"user_example": 0}
-	}
-
-	if c.Communications.SlackConfig.Name != "Slack" ||
-		c.Communications.SMSGlobalConfig.Name != "SMSGlobal" ||
-		c.Communications.SMTPConfig.Name != "SMTP" ||
-		c.Communications.TelegramConfig.Name != "Telegram" {
-		log.Warnln(log.ConfigMgr, "Communications config name/s not set correctly")
-	}
-	if c.Communications.SlackConfig.Enabled {
-		if c.Communications.SlackConfig.TargetChannel == "" ||
-			c.Communications.SlackConfig.VerificationToken == "" ||
-			c.Communications.SlackConfig.VerificationToken == "testtest" {
-			c.Communications.SlackConfig.Enabled = false
-			log.Warnln(log.ConfigMgr, "Slack enabled in config but variable data not set, disabling.")
-		}
-	}
-	if c.Communications.SMSGlobalConfig.Enabled {
-		if c.Communications.SMSGlobalConfig.Username == "" ||
-			c.Communications.SMSGlobalConfig.Password == "" ||
-			len(c.Communications.SMSGlobalConfig.Contacts) == 0 {
-			c.Communications.SMSGlobalConfig.Enabled = false
-			log.Warnln(log.ConfigMgr, "SMSGlobal enabled in config but variable data not set, disabling.")
-		}
-	}
-	if c.Communications.SMTPConfig.Enabled {
-		if c.Communications.SMTPConfig.Host == "" ||
-			c.Communications.SMTPConfig.Port == "" ||
-			c.Communications.SMTPConfig.AccountName == "" ||
-			c.Communications.SMTPConfig.AccountPassword == "" {
-			c.Communications.SMTPConfig.Enabled = false
-			log.Warnln(log.ConfigMgr, "SMTP enabled in config but variable data not set, disabling.")
-		}
-	}
-	if c.Communications.TelegramConfig.Enabled {
-		if _, ok := c.Communications.TelegramConfig.AuthorisedClients["user_example"]; ok ||
-			len(c.Communications.TelegramConfig.AuthorisedClients) == 0 ||
-			c.Communications.TelegramConfig.VerificationToken == "" ||
-			c.Communications.TelegramConfig.VerificationToken == "testest" {
-			c.Communications.TelegramConfig.Enabled = false
-			log.Warnln(log.ConfigMgr, "Telegram enabled in config but variable data not set, disabling.")
-		}
 	}
 }
 
@@ -1215,34 +1040,6 @@ func (c *Config) CheckLoggerConfig() error {
 	return log.SetLogPath(logPath)
 }
 
-func (c *Config) checkGCTScriptConfig() error {
-	m.Lock()
-	defer m.Unlock()
-
-	if c.GCTScript.ScriptTimeout <= 0 {
-		c.GCTScript.ScriptTimeout = gctscript.DefaultTimeoutValue
-	}
-
-	if c.GCTScript.MaxVirtualMachines == 0 {
-		c.GCTScript.MaxVirtualMachines = gctscript.DefaultMaxVirtualMachines
-	}
-
-	scriptPath := c.GetDataPath("scripts")
-	err := common.CreateDir(scriptPath)
-	if err != nil {
-		return err
-	}
-
-	outputPath := filepath.Join(scriptPath, "output")
-	err = common.CreateDir(outputPath)
-	if err != nil {
-		return err
-	}
-
-	gctscript.ScriptPath = scriptPath
-
-	return nil
-}
 
 func (c *Config) checkDatabaseConfig() error {
 	m.Lock()
@@ -1375,23 +1172,6 @@ func (c *Config) CheckOrderManagerConfig() {
 	}
 }
 
-// CheckConnectionMonitorConfig checks and if zero value assigns default values
-func (c *Config) CheckConnectionMonitorConfig() {
-	m.Lock()
-	defer m.Unlock()
-
-	if c.ConnectionMonitor.CheckInterval == 0 {
-		c.ConnectionMonitor.CheckInterval = connchecker.DefaultCheckInterval
-	}
-
-	if len(c.ConnectionMonitor.DNSList) == 0 {
-		c.ConnectionMonitor.DNSList = connchecker.DefaultDNSList
-	}
-
-	if len(c.ConnectionMonitor.PublicDomainList) == 0 {
-		c.ConnectionMonitor.PublicDomainList = connchecker.DefaultDomainList
-	}
-}
 
 // DefaultFilePath returns the default config file path
 // MacOS/Linux: $HOME/.gocryptotrader/config.json or config.dat
@@ -1713,14 +1493,6 @@ func (c *Config) CheckConfig() error {
 		return fmt.Errorf(ErrCheckingConfigValues, err)
 	}
 
-	err = c.checkGCTScriptConfig()
-	if err != nil {
-		log.Errorf(log.ConfigMgr,
-			"Failed to configure gctscript, feature has been disabled: %s\n",
-			err)
-	}
-
-	c.CheckConnectionMonitorConfig()
 	c.CheckDataHistoryMonitorConfig()
 	c.CheckCurrencyStateManager()
 	c.CheckOrderManagerConfig()

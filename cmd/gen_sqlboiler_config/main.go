@@ -9,7 +9,6 @@ import (
 
 	"github.com/otter-trade/coin-exchange-api/common/file"
 	"github.com/otter-trade/coin-exchange-api/config"
-	"github.com/otter-trade/coin-exchange-api/core"
 	"github.com/otter-trade/coin-exchange-api/database"
 	"github.com/otter-trade/coin-exchange-api/database/repository"
 )
@@ -34,7 +33,6 @@ type driverConfig struct {
 
 func main() {
 	fmt.Println("GoCryptoTrader SQLBoiler config generation tool")
-	fmt.Println(core.Copyright)
 	fmt.Println()
 
 	flag.StringVar(&configFile, "config", config.DefaultFilePath(), "config file to load")

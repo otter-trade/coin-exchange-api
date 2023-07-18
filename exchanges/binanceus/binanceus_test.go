@@ -14,7 +14,6 @@ import (
 
 	"github.com/otter-trade/coin-exchange-api/common"
 	"github.com/otter-trade/coin-exchange-api/config"
-	"github.com/otter-trade/coin-exchange-api/core"
 	"github.com/otter-trade/coin-exchange-api/currency"
 	exchange "github.com/otter-trade/coin-exchange-api/exchanges"
 	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
@@ -29,6 +28,7 @@ const (
 	apiKey                  = ""
 	apiSecret               = ""
 	canManipulateRealOrders = false
+   BitcoinDonationAddress  = "bc1qk0jareu4jytc0cfrhr5wgshsq8282awpavfahc"
 )
 
 var (
@@ -344,7 +344,7 @@ func TestWithdraw(t *testing.T) {
 		Currency:    currency.BTC,
 		Description: "WITHDRAW IT ALL",
 		Crypto: withdraw.CryptoRequest{
-			Address: core.BitcoinDonationAddress,
+			Address: BitcoinDonationAddress,
 			Chain:   "BSC",
 		},
 	}

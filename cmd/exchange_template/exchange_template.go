@@ -14,7 +14,6 @@ import (
 	"github.com/otter-trade/coin-exchange-api/common"
 	"github.com/otter-trade/coin-exchange-api/common/file"
 	"github.com/otter-trade/coin-exchange-api/config"
-	"github.com/otter-trade/coin-exchange-api/core"
 	"github.com/otter-trade/coin-exchange-api/currency"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
@@ -50,7 +49,6 @@ func main() {
 	flag.Parse()
 
 	fmt.Println("GoCryptoTrader: Exchange templating tool.")
-	fmt.Println(core.Copyright)
 	fmt.Println()
 
 	if len(os.Args) == 1 {
