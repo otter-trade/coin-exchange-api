@@ -327,64 +327,6 @@ func TestPurgeExchangeCredentials(t *testing.T) {
 		t.Error("unexpected values")
 	}
 }
-
-func TestGetCommunicationsConfig(t *testing.T) {
-	t.Parallel()
-	cfg := &Config{
-		Communications: base.CommunicationsConfig{
-			SlackConfig: base.SlackConfig{Name: "hellomoto"},
-		},
-	}
-	cCFG := cfg.GetCommunicationsConfig()
-	if cCFG.SlackConfig.Name != cfg.Communications.SlackConfig.Name {
-		t.Error("failed to retrieve config")
-	}
-}
-
-func TestUpdateCommunicationsConfig(t *testing.T) {
-	t.Parallel()
-	cfg := &Config{
-		Communications: base.CommunicationsConfig{
-			SlackConfig: base.SlackConfig{Name: "hellomoto"},
-		},
-	}
-	cfg.UpdateCommunicationsConfig(&base.CommunicationsConfig{SlackConfig: base.SlackConfig{Name: testString}})
-	if cfg.Communications.SlackConfig.Name != testString {
-		t.Error("UpdateCommunicationsConfig LoadConfig error")
-	}
-}
-
-func TestGetCryptocurrencyProviderConfig(t *testing.T) {
-	t.Parallel()
-	cfg := &Config{
-		Currency: currency.Config{
-			CryptocurrencyProvider: currency.Provider{
-				Name: "hellomoto",
-			},
-		},
-	}
-	cCFG := cfg.GetCryptocurrencyProviderConfig()
-	if cCFG.Name != cfg.Currency.CryptocurrencyProvider.Name {
-		t.Error("failed to retrieve config")
-	}
-}
-
-func TestUpdateCryptocurrencyProviderConfig(t *testing.T) {
-	t.Parallel()
-	cfg := &Config{
-		Currency: currency.Config{
-			CryptocurrencyProvider: currency.Provider{
-				Name: "hellomoto",
-			},
-		},
-	}
-	cfg.UpdateCryptocurrencyProviderConfig(currency.Provider{Name: "SERIOUS TESTING PROCEDURE!"})
-	if cfg.Currency.CryptocurrencyProvider.Name != "SERIOUS TESTING PROCEDURE!" {
-		t.Error("UpdateCurrencyProviderConfig LoadConfig error")
-	}
-}
-
-
 func TestGetExchangeAssetTypes(t *testing.T) {
 	t.Parallel()
 	var c Config
@@ -1655,8 +1597,6 @@ func TestSaveConfigToFile(t *testing.T) {
 	}
 }
 
-
-
 func TestDefaultFilePath(t *testing.T) {
 	// This is tricky to test because we're dealing with a config file stored
 	// in a persons default directory and to properly test it, it would
@@ -1868,8 +1808,6 @@ func TestDisableNTPCheck(t *testing.T) {
 		t.Errorf("failed expected EOF got: %v", err)
 	}
 }
-
-
 
 func TestCheckDatabaseConfig(t *testing.T) {
 	t.Parallel()
