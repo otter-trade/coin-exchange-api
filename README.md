@@ -78,5 +78,23 @@ func main() {
 	} else {
 		fmt.Println("open2: ", resp[0].Open)
 	}
+
+ 	pair := currency.NewPair(currency.BTC, currency.USDT)
+	startTime := time.Date(2020, 9, 1, 0, 0, 0, 0, time.UTC)
+	endTime := time.Date(2021, 2, 15, 0, 0, 0, 0, time.UTC)
+
+	resp1, err := b.GetHistoricCandles(context.Background(), pair, asset.Spot, kline.Interval(time.Hour*5), startTime, endTime)
+	if !errors.Is(err, kline.ErrRequestExceedsExchangeLimits) {
+		fmt.Println("received: '%v', but expected: '%v'", err, kline.ErrRequestExceedsExchangeLimits)
+	} else {
+		fmt.Println("open3: ", resp1)
+	}
+
+	resp1, err = b.GetHistoricCandles(context.Background(), pair, asset.Spot, kline.OneDay, startTime, endTime)
+	if err != nil {
+		fmt.Println("Binanceus GetHistoricCandles() error", err)
+	} else {
+		fmt.Println("open4: ", resp1)
+	}
 }
 
