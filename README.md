@@ -4,6 +4,7 @@
 package main
 
 import (
+
 	"context"
 	"fmt"
 	"log"
@@ -18,6 +19,7 @@ import (
 // getTime returns a static time for mocking endpoints, if mock is not enabled
 // this will default to time now with a window size of 30 days.
 // Mock details are unix seconds; start = 1577836800 and end = 1580515200
+
 func getTime() (start, end time.Time) {
 
 	tn := time.Now()
@@ -26,6 +28,7 @@ func getTime() (start, end time.Time) {
 }
 
 const (
+
 	apiKey                  = ""
 	apiSecret               = ""
 	canManipulateRealOrders = false
@@ -35,6 +38,7 @@ const (
 var b = &binance.Binance{}
 
 func main() {
+
 	cfg := config.GetConfig()
 	err := cfg.LoadConfig("./testdata/configtest.json", true)
 	if err != nil {
