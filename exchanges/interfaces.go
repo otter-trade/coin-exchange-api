@@ -11,6 +11,7 @@ import (
 	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
 	"github.com/otter-trade/coin-exchange-api/exchanges/currencystate"
 	"github.com/otter-trade/coin-exchange-api/exchanges/deposit"
+	"github.com/otter-trade/coin-exchange-api/exchanges/fundingrate"
 	"github.com/otter-trade/coin-exchange-api/exchanges/kline"
 	"github.com/otter-trade/coin-exchange-api/exchanges/margin"
 	"github.com/otter-trade/coin-exchange-api/exchanges/order"
@@ -144,7 +145,8 @@ type FuturesManagement interface {
 	ScaleCollateral(ctx context.Context, calculator *order.CollateralCalculator) (*order.CollateralByCurrency, error)
 	CalculateTotalCollateral(context.Context, *order.TotalCollateralCalculator) (*order.TotalCollateralResponse, error)
 	GetFuturesPositions(context.Context, *order.PositionsRequest) ([]order.PositionDetails, error)
-	GetFundingRates(context.Context, *order.FundingRatesRequest) ([]order.FundingRates, error)
+	GetFundingRates(context.Context, *fundingrate.RatesRequest) (*fundingrate.Rates, error)
+	GetLatestFundingRate(context.Context, *fundingrate.LatestRateRequest) (*fundingrate.LatestRateResponse, error)
 	IsPerpetualFutureCurrency(asset.Item, currency.Pair) (bool, error)
 	GetCollateralCurrencyForContract(asset.Item, currency.Pair) (currency.Code, asset.Item, error)
 	GetMarginRatesHistory(context.Context, *margin.RateHistoryRequest) (*margin.RateHistoryResponse, error)

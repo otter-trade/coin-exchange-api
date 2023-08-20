@@ -330,9 +330,9 @@ func (m *syncManager) add(k currencyPairKey, s syncBase) *currencyPairSyncAgent 
 	return c
 }
 
-// Update notifies the syncManager to change the last updated time for a exchange asset pair
+// WebsocketUpdate notifies the syncManager to change the last updated time for a exchange asset pair
 // And set IsUsingWebsocket to true. It should be used externally only from websocket updaters
-func (m *syncManager) Update(exchangeName string, p currency.Pair, a asset.Item, syncType syncItemType, err error) error {
+func (m *syncManager) WebsocketUpdate(exchangeName string, p currency.Pair, a asset.Item, syncType syncItemType, err error) error {
 	if m == nil {
 		return fmt.Errorf("exchange CurrencyPairSyncer %w", ErrNilSubsystem)
 	}
@@ -578,7 +578,11 @@ func (m *syncManager) syncTicker(c *currencyPairSyncAgent, e exchange.IBotExchan
 				c.AssetType)
 		}
 		m.PrintTickerSummary(result, "REST", err)
-
+		if err == nil {
+			if m.remoteConfig.WebsocketRPC.Enabled {
+				relayWebsocketEvent(result, "ticker_update", c.AssetType.String(), exchangeName)
+			}
+		}
 		updateErr := m.update(c, SyncItemTicker, err)
 		if updateErr != nil {
 			log.Errorln(log.SyncMgr, updateErr)
@@ -615,7 +619,11 @@ func (m *syncManager) syncOrderbook(c *currencyPairSyncAgent, e exchange.IBotExc
 			c.Pair,
 			c.AssetType)
 		m.PrintOrderbookSummary(result, "REST", err)
-
+		if err == nil {
+			if m.remoteConfig.WebsocketRPC.Enabled {
+				relayWebsocketEvent(result, "orderbook_update", c.AssetType.String(), e.GetName())
+			}
+		}
 		updateErr := m.update(c, SyncItemOrderbook, err)
 		if updateErr != nil {
 			log.Errorln(log.SyncMgr, updateErr)
@@ -840,6 +848,10 @@ func (m *syncManager) WaitForInitialSync() error {
 
 	m.initSyncWG.Wait()
 	return nil
+}
+
+func relayWebsocketEvent(result interface{}, event, assetType, exchangeName string) {
+
 }
 
 func greatestCommonDivisor(a, b time.Duration) time.Duration {

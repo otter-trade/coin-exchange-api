@@ -16,6 +16,7 @@ import (
 	exchange "github.com/otter-trade/coin-exchange-api/exchanges"
 	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
 	"github.com/otter-trade/coin-exchange-api/exchanges/currencystate"
+	"github.com/otter-trade/coin-exchange-api/exchanges/fundingrate"
 	"github.com/otter-trade/coin-exchange-api/exchanges/order"
 	"github.com/otter-trade/coin-exchange-api/log"
 	"github.com/shopspring/decimal"
@@ -763,9 +764,9 @@ func (m *OrderManager) processFuturesPositions(exch exchange.IBotExchange, posit
 	if !isPerp {
 		return nil
 	}
-	frp, err := exch.GetFundingRates(context.TODO(), &order.FundingRatesRequest{
+	frp, err := exch.GetFundingRates(context.TODO(), &fundingrate.RatesRequest{
 		Asset:                position.Asset,
-		Pairs:                currency.Pairs{position.Pair},
+		Pair:                 position.Pair,
 		StartDate:            position.Orders[0].Date,
 		EndDate:              time.Now(),
 		IncludePayments:      true,
@@ -774,14 +775,8 @@ func (m *OrderManager) processFuturesPositions(exch exchange.IBotExchange, posit
 	if err != nil {
 		return err
 	}
-	for i := range frp {
-		err = m.orderStore.futuresPositionController.TrackFundingDetails(&frp[i])
-		if err != nil {
-			return err
-		}
-	}
 
-	return nil
+	return m.orderStore.futuresPositionController.TrackFundingDetails(frp)
 }
 
 func (m *OrderManager) processMatchingOrders(exch exchange.IBotExchange, orders []order.Detail, wg *sync.WaitGroup) {

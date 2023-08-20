@@ -17,6 +17,7 @@ import (
 	"github.com/otter-trade/coin-exchange-api/exchanges/account"
 	"github.com/otter-trade/coin-exchange-api/exchanges/asset"
 	"github.com/otter-trade/coin-exchange-api/exchanges/currencystate"
+	"github.com/otter-trade/coin-exchange-api/exchanges/fundingrate"
 	"github.com/otter-trade/coin-exchange-api/exchanges/kline"
 	"github.com/otter-trade/coin-exchange-api/exchanges/margin"
 	"github.com/otter-trade/coin-exchange-api/exchanges/order"
@@ -1505,7 +1506,7 @@ func (b *Base) GetPositionSummary(context.Context, *order.PositionSummaryRequest
 }
 
 // GetFundingPaymentDetails returns funding payment details for a future for a specific time period
-func (b *Base) GetFundingPaymentDetails(context.Context, *order.FundingRatesRequest) (*order.FundingRates, error) {
+func (b *Base) GetFundingPaymentDetails(context.Context, *fundingrate.RatesRequest) (*fundingrate.Rates, error) {
 	return nil, common.ErrNotYetImplemented
 }
 
@@ -1514,8 +1515,13 @@ func (b *Base) GetFuturesPositions(context.Context, *order.PositionsRequest) ([]
 	return nil, common.ErrNotYetImplemented
 }
 
+// GetLatestFundingRate returns the latest funding rate based on request data
+func (b *Base) GetLatestFundingRate(context.Context, *fundingrate.LatestRateRequest) (*fundingrate.LatestRateResponse, error) {
+	return nil, common.ErrNotYetImplemented
+}
+
 // GetFundingRates returns funding rates based on request data
-func (b *Base) GetFundingRates(context.Context, *order.FundingRatesRequest) ([]order.FundingRates, error) {
+func (b *Base) GetFundingRates(context.Context, *fundingrate.RatesRequest) (*fundingrate.Rates, error) {
 	return nil, common.ErrNotYetImplemented
 }
 

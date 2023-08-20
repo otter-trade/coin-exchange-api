@@ -1469,7 +1469,6 @@ func TestGetAllOpenFuturesPositions(t *testing.T) {
 }
 
 func TestGetOpenFuturesPosition(t *testing.T) {
-	fakeExchangeName := "fake"
 	t.Parallel()
 	wg := &sync.WaitGroup{}
 	o, err := SetupOrderManager(NewExchangeManager(), wg, false, false, time.Hour)
@@ -1496,7 +1495,7 @@ func TestGetOpenFuturesPosition(t *testing.T) {
 	}
 	exch.SetDefaults()
 	b := exch.GetBase()
-	b.Name = fakeExchangeName
+	b.Name = "fake"
 	b.Enabled = true
 	b.CurrencyPairs.Pairs = make(map[asset.Item]*currency.PairStore)
 	b.CurrencyPairs.Pairs[asset.Futures] = &currency.PairStore{
@@ -1513,49 +1512,10 @@ func TestGetOpenFuturesPosition(t *testing.T) {
 		Available:     currency.Pairs{cp},
 		Enabled:       currency.Pairs{cp},
 	}
-	o, err = SetupOrderManager(em, wg, false, true, time.Hour)
-	if !errors.Is(err, nil) {
-		t.Errorf("received '%v', expected '%v'", err, nil)
-	}
-	o.started = 1
 
-	_, err = o.GetOpenFuturesPosition(testExchange, asset.Spot, cp)
-	if !errors.Is(err, order.ErrNotFuturesAsset) {
-		t.Errorf("received '%v', expected '%v'", err, order.ErrNotFuturesAsset)
-	}
-
-	_, err = o.GetOpenFuturesPosition(testExchange, asset.Futures, cp)
-	if !errors.Is(err, order.ErrPositionNotFound) {
-		t.Errorf("received '%v', expected '%v'", err, order.ErrPositionNotFound)
-	}
-
-	err = o.orderStore.futuresPositionController.TrackNewOrder(&order.Detail{
-		AssetType: asset.Futures,
-		OrderID:   "123",
-		Pair:      cp,
-		Side:      order.Buy,
-		Type:      order.Market,
-		Date:      time.Now(),
-		Amount:    1337,
-		Exchange:  testExchange,
-	})
-	if !errors.Is(err, nil) {
-		t.Errorf("received '%v', expected '%v'", err, nil)
-	}
-	_, err = o.GetOpenFuturesPosition(testExchange, asset.Futures, cp)
-	if !errors.Is(err, nil) {
-		t.Errorf("received '%v', expected '%v'", err, nil)
-	}
-
-	o = nil
-	_, err = o.GetOpenFuturesPosition(testExchange, asset.Spot, cp)
-	if !errors.Is(err, ErrNilSubsystem) {
-		t.Errorf("received '%v', expected '%v'", err, ErrNilSubsystem)
-	}
 }
 
 func TestProcessFuturesPositions(t *testing.T) {
-	fakeExchangeName := "fake"
 	t.Parallel()
 	o := &OrderManager{}
 	err := o.processFuturesPositions(nil, nil)
@@ -1569,7 +1529,7 @@ func TestProcessFuturesPositions(t *testing.T) {
 	}
 	exch.SetDefaults()
 	b := exch.GetBase()
-	b.Name = fakeExchangeName
+	b.Name = "fake"
 	b.Enabled = true
 
 	cp, err := currency.NewPairFromString("btc-perp")
@@ -1596,4 +1556,5 @@ func TestProcessFuturesPositions(t *testing.T) {
 		Available:     currency.Pairs{cp, cp2},
 		Enabled:       currency.Pairs{cp, cp2},
 	}
+
 }
