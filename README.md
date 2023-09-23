@@ -1,5 +1,5 @@
 # coin-exchange-api
-参考1. binance
+## 参考1. binance
 
 package main
 
@@ -97,4 +97,60 @@ func main() {
 		fmt.Println("open4: ", resp1)
 	}
 }
+
+## 参考2. okx
+
+
+func main() {
+
+	cfg := config.GetConfig()
+ 
+	err := cfg.LoadConfig("./testdata/configtest.json", true)
+ 
+	if err != nil {
+		log.Fatal("Binance load config error", err)
+	}
+
+	okxConfig, err := cfg.GetExchangeConfig("Okx")
+	if err != nil {
+		log.Fatal("Okx Setup() init error", err)
+	}
+	okxConfig.API.AuthenticatedSupport = true
+	okxConfig.API.Credentials.Key = "aab214a7-2326-4cb8-91ca-f6372a6e32c6"
+	okxConfig.API.Credentials.Secret = "xxxxxxxxxxxxxxxxxxxxx"
+	okxConfig.API.Credentials.ClientID = "passphrase"
+
+	//
+	// Use unified api to create the exchange
+	fmt.Println("Use unified api to create the exchange")
+	em := engine.NewExchangeManager()
+	exch, err := em.NewExchangeByName("Okx")
+	if err != nil {
+		fmt.Println("NewExchangeByName() error", err)
+	}
+	exch.SetDefaults()
+
+	err = exch.Setup(okxConfig)
+	if err != nil {
+		fmt.Println("exch.Setup() error", err)
+	}
+	err = exch.UpdateTradablePairs(context.Background(), true)
+	if err != nil {
+		log.Fatal("okx setup error", err)
+	}
+
+	pair := currency.NewPair(currency.BTC, currency.USDT)
+	fmt.Println("pair: ", pair)
+	startTime := time.Date(2023, 8, 1, 0, 0, 0, 0, time.UTC)
+	endTime := time.Date(2023, 8, 15, 0, 0, 0, 0, time.UTC)
+
+	//resp1, err := exch.GetHistoricCandles(context.Background(), pair, asset.Spot, kline.Interval(time.Hour), startTime, endTime)
+	resp1, err := exch.GetHistoricCandles(context.Background(), pair, asset.Spot, kline.OneDay, startTime, endTime)
+	if !errors.Is(err, kline.ErrRequestExceedsExchangeLimits) {
+		fmt.Println("received: '%v', but expected: '%v'", err, kline.ErrRequestExceedsExchangeLimits)
+	} else {
+		fmt.Println("resp1: ", resp1)
+	}
+}
+
 
